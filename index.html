@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <!-- css link -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- fonts link -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet" />
+  <!-- icons link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+</head>
+
+<body>
+  <div class="image-background"></div>
+  <header id="header">
+    <nav>
+      <div class="logo">Pxulin</div>
+      <ul>
+        <li><a href="#header">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="menu-toggle">
+        <i class="fa fa-bars" style="font-size: 24px"></i>
+
+      </div>
+    </nav>
+    <div class="menu-drop">
+      <li><a href="#header">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </div>
+  </header>
+  <main>
+    <h1>Global Network</h1>
+    <h2>System & Ethernet</h2>
+    <div class="buttons">
+      <button>Learn More</button>
+      <button>Join</button>
+    </div>
+    <!-- nav icons -->
+    <div class="icons">
+      <i class="icon fa fa-facebook"></i>
+      <i class="icon fa fa-instagram"></i>
+      <i class="icon fa fa-twitter"></i>
+      <i class="icon fa fa-google"></i>
+    </div>
+  </main>
+  <article id="about">
+    <h1 class="reveal">About Internet</h1>
+    <p class="reveal">The internet is a global computer network that connects people and devices around the world. It
+      allows people to communicate, access information, shop and play games. The internet has also brought new job
+      opportunities, but it is important to protect your information online to ensure the privacy and security of
+      personal data. In short, the internet is a powerful tool that has transformed the way people connect and interact
+      around the world.</p>
+  </article>
+
+  <section id="services">
+    <h1 class="reveal">Services</h1>
+    <!-- Swiper -->
+    <div class="swiper mySwiper reveal">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide reveal">
+          <strong>
+            <p class="reveal"> Wi-Fi:</p>
+          </strong>
+          <p class="reveal">This wireless technology is used for accessing the internet, streaming content, and
+            connecting other
+            devices to your network.</p>
+          <img
+            src="https://c4.wallpaperflare.com/wallpaper/432/225/128/server-machine-computer-hardware-wallpaper-preview.jpg"
+            alt="">
+        </div>
+        <div class="swiper-slide reveal">
+          <strong>
+            <p class="reveal"> Router or Firewall:</p>
+          </strong>
+          <p class="reveal">These devices help to control and secure your network traffic.</p>
+          <img src="https://i.pinimg.com/736x/16/c0/97/16c097760173eed7093dc93d43a9b29c.jpg" alt="">
+        </div>
+        <div class="swiper-slide reveal">
+          <strong>
+            <p class="reveal"> Modem:</p>
+          </strong>
+          <p class="reveal">This device connects your computer to your internet provider's network and allows for
+            communication with
+            other devices on the network.</p>
+          <img
+            src="https://c4.wallpaperflare.com/wallpaper/673/16/917/internet-server-data-storage-wallpaper-preview.jpg"
+            alt="">
+        </div>
+
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section class="contact ">
+    <div class="card-cont reveal">
+      <h1>Contact</h1>
+      <div class="contacts-me reveal">
+        <p><i class="fa fa-phone reveal" aria-hidden="true"></i> Phone: +55(21) 96991-5011</p>
+        <p><i class="fa fa-envelope reveal" aria-hidden="true"></i> Email: pxulin@gmail.com</p>
+        <p><i class="fa fa-map-marker reveal" aria-hidden="true"></i> Adress: RJ, Rio de Janeiro</p>
+        <hr>
+      </div>
+
+      <div class="cont-put reveal">
+        <form>
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Your email" required>
+      </div>
+      <div class="message-put reveal">
+        <textarea id="message" placeholder="Your message" cols="49" rows="5" minlength="10" maxlength="203"
+          required></textarea>
+      </div>
+      <button type="submit">Send</button>
+    </div>
+    </form>
+
+  </section>
+
+  <footer id="contact">
+    <p> <em> pxulin - All photos used are not for commercial purposes.</em></p>
+  </footer>
+
+
+
+  <!-- Default JS-->
+  <script src="javascript.js">
+    //BarMenu
+const menuToggle = document.querySelector(".menu-toggle");
+const menuIcon = document.querySelector(".menu-toggle i");
+const menuDrop = document.querySelector(".menu-drop");
+
+menuToggle.onclick = function () {
+  menuDrop.classList.toggle("open");
+
+  const iconOpen = menuDrop.classList.contains("open");
+  menuIcon.classList = iconOpen ? "fa fa-close" : "fa fa-bars";
+};
+
+//
+
+window.addEventListener("scroll", reveal);
+
+function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var wHeight = window.innerHeight;
+    var rTop = reveals[i].getBoundingClientRect().top;
+    var rPoint = 150;
+
+    if (rTop < wHeight - rPoint) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+
+
+  </script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <!-- Initialize Swiper -->
+  <script src="swiper.js">
+    var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+  </script>
+  <!-- Scroll to Top-->
+  <script src="scrollToTop.js">
+     configObj = { "buttonD": "M8 17.333h5.333v4C13.333 22.806 14.527 24 16 24c1.473 0 2.667-1.194 2.667-2.667v-4H24L16 8l-8 9.333z", "buttonT": "translate(-1088 -172) translate(832 140) translate(32 32) translate(224)", "shadowSize": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)", "roundnessSize": "12px", "buttonDToBottom": "70px", "buttonDToRight": "40px", "selectedBackgroundColor": "#636363", "selectedIconColor": "#ffffff", "buttonWidth": "48px", "buttonHeight": "48px", "svgWidth": "40px", "svgHeight": "40px" }; function createButton(obj, pageSimulator) { const body = document.querySelector("body"); backToTopButton = document.createElement("span"); backToTopButton.classList.add("softr-back-to-top-button"); backToTopButton.id = "softr-back-to-top-button"; pageSimulator ? pageSimulator.appendChild(backToTopButton) : body.appendChild(backToTopButton); backToTopButton.style.width = obj.buttonWidth; backToTopButton.style.height = obj.buttonHeight; backToTopButton.style.marginRight = obj.buttonDToRight; backToTopButton.style.marginBottom = obj.buttonDToBottom; backToTopButton.style.borderRadius = obj.roundnessSize; backToTopButton.style.boxShadow = obj.shadowSize; backToTopButton.style.color = obj.selectedBackgroundColor; backToTopButton.style.backgroundColor = obj.selectedBackgroundColor; pageSimulator ? backToTopButton.style.position = "absolute" : backToTopButton.style.position = "fixed"; backToTopButton.style.outline = "none"; backToTopButton.style.bottom = "0px"; backToTopButton.style.right = "0px"; backToTopButton.style.cursor = "pointer"; backToTopButton.style.textAlign = "center"; backToTopButton.style.border = "solid 2px currentColor"; backToTopButton.innerHTML = '<svg class="back-to-top-button-svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" > <g fill="none" fill-rule="evenodd"> <path d="M0 0H32V32H0z" transform="translate(-1028 -172) translate(832 140) translate(32 32) translate(164) matrix(1 0 0 -1 0 32)" /> <path class="back-to-top-button-img" fill-rule="nonzero" d="M11.384 13.333h9.232c.638 0 .958.68.505 1.079l-4.613 4.07c-.28.246-.736.246-1.016 0l-4.613-4.07c-.453-.399-.133-1.079.505-1.079z" transform="translate(-1028 -172) translate(832 140) translate(32 32) translate(164) matrix(1 0 0 -1 0 32)" /> </g> </svg>'; backToTopButtonSvg = document.querySelector(".back-to-top-button-svg"); backToTopButtonSvg.style.verticalAlign = "middle"; backToTopButtonSvg.style.margin = "auto"; backToTopButtonSvg.style.justifyContent = "center"; backToTopButtonSvg.style.width = obj.svgWidth; backToTopButtonSvg.style.height = obj.svgHeight; backToTopButton.appendChild(backToTopButtonSvg); backToTopButtonImg = document.querySelector(".back-to-top-button-img"); backToTopButtonImg.style.fill = obj.selectedIconColor; backToTopButtonSvg.appendChild(backToTopButtonImg); backToTopButtonImg.setAttribute("d", obj.buttonD); backToTopButtonImg.setAttribute("transform", obj.buttonT); if (!pageSimulator) { backToTopButton.style.display = "none"; window.onscroll = function () { if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) { backToTopButton.style.display = "block"; } else { backToTopButton.style.display = "none"; } }; backToTopButton.onclick = function () { document.body.scrollTop = 0; document.documentElement.scrollTop = 0; }; } }; document.addEventListener("DOMContentLoaded", function () { createButton(configObj, null); });
+  </script>
+
+</body>
+
+</html>
